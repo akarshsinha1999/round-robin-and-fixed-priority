@@ -1,0 +1,27 @@
+/*Sorting on the base of Priority if that same then on the base of PID*/
+structcomPare
+{
+	booloperator()(constP_d& x ,constP_d& y)
+	{
+		if( x.Priority>y.Priority )
+			returntrue;
+		elseif( x.Priority<y.Priority )
+			returnfalse;
+		if( x.Pid>y.Pid )
+			returntrue;
+
+		returnfalse;
+
+	}
+
+};
+
+/**To check the Input **/
+voidmy_check(vector<P_d> mv)
+{
+	for(unsignedinti= 0; i<mv.size() ;i++)
+	{
+		cout<<"Pid :"<<mv[i].Pid<<" _time : "<<mv[i].A_time<<"B_time : "<<mv[i].B_time<<" Priority : "<<mv[i].Priority<<endl;
+	}
+
+}
