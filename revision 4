@@ -1,0 +1,51 @@
+	intGhant[total_exection_time]={0}; //Ghant Chart
+	for( i= 0; i<total_exection_time; i++ )
+	{
+		Ghant[i]=-1;
+	}
+	//cout<<"total_exection_time : "<<total_exection_time<<endl;
+
+	priority_queue<P_d ,vector<Process_Data> ,comPare>pq; //Priority Queue PQ
+
+	queue<P_d>rq; //Round Robin Queue RQ
+	intcpu_state = 0; //idle if 0 then Idle if 1 the Busy
+	int quantum = 4 ; //Time Quantum
+	current.Pid = -2;
+	current.Priority = 999999;
+
+	for ( clock = 0; clock<total_exection_time; clock++ )
+	{
+		/**Insert the process with same Arrival time in Priority Queue**/
+		for( int j = 0; j< n ; j++ )
+		{
+			if(clock == input[j].A_time)
+			{
+				pq.push(input[j]);
+			}
+		}
+
+
+		if(cpu_state == 0) //If CPU idle
+		{
+			if(!pq.empty())
+			{
+				current = pq.top();
+				cpu_state = 1;
+				pq_process = 1;
+				pq.pop();
+				qu
+					quantum = 4; 
+				}
+			}
+			elseif(rq_process == 1&& (!pq.empty())) //If process is from RQ and new process come  in PQ
+			{
+				rq.push(current);
+				current = pq.top();
+				pq.pop();
+				rq_process = 0;
+				pq_process = 1;
+				quantum = 4 ;
+			}
+
+
+		}
